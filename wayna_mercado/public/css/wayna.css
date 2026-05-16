@@ -1,0 +1,439 @@
+/* public/css/wayna.css */
+:root {
+    --wayna-orange: #FF6B35;
+    --wayna-orange-dark: #E55A2B;
+    --wayna-orange-light: #FF8C5A;
+    --wayna-orange-soft: #FFF3ED;
+    --wayna-black: #000000;
+    --wayna-black-light: #1A1A1A;
+    --wayna-gray: #4A4A4A;
+    --wayna-light: #F5F5F5;
+    --wayna-white: #FFFFFF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--wayna-light);
+    color: var(--wayna-black);
+}
+
+/* ============================================
+   NAVBAR
+   ============================================ */
+.navbar {
+    background-color: var(--wayna-black) !important;
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--wayna-orange);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--wayna-orange) !important;
+}
+
+.navbar-brand span {
+    color: var(--wayna-white);
+}
+
+.nav-link {
+    color: var(--wayna-white) !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--wayna-orange) !important;
+}
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn-wayna {
+    background-color: var(--wayna-orange);
+    color: var(--wayna-white);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-weight: 500;
+}
+
+.btn-wayna:hover {
+    background-color: var(--wayna-orange-dark);
+    color: var(--wayna-white);
+    transform: translateY(-2px);
+}
+
+.btn-outline-wayna {
+    background-color: transparent;
+    color: var(--wayna-orange);
+    border: 2px solid var(--wayna-orange);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-outline-wayna:hover {
+    background-color: var(--wayna-orange);
+    color: var(--wayna-white);
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+    background: linear-gradient(135deg, var(--wayna-orange) 0%, var(--wayna-orange-dark) 100%);
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--wayna-white);
+}
+
+.hero h1 span {
+    color: var(--wayna-black);
+}
+
+.hero p {
+    color: var(--wayna-white);
+    font-size: 1.2rem;
+}
+
+/* ============================================
+   CARDS
+   ============================================ */
+.card {
+    border-radius: 18px;
+    border: none;
+    background-color: var(--wayna-white);
+}
+
+.card-wayna {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    background-color: var(--wayna-white);
+}
+
+.card-wayna:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.card-wayna .card-icon {
+    font-size: 3rem;
+    color: var(--wayna-orange);
+    margin-bottom: 1rem;
+}
+
+.card-wayna .card-title {
+    color: var(--wayna-black);
+    font-weight: bold;
+}
+
+.card-wayna .card-text {
+    color: var(--wayna-gray);
+}
+
+/* ============================================
+   TABLAS
+   ============================================ */
+.table-wayna {
+    background-color: var(--wayna-white);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.table-wayna thead th {
+    background-color: var(--wayna-orange);
+    color: var(--wayna-white);
+    border-bottom: none;
+    padding: 1rem;
+}
+
+.table-wayna tbody tr td {
+    vertical-align: middle;
+    color: var(--wayna-black);
+    padding: 1rem;
+}
+
+.table-wayna tbody tr:hover {
+    background-color: var(--wayna-orange-soft);
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+.form-wayna {
+    background: var(--wayna-white);
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+.form-wayna label {
+    color: var(--wayna-black);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.form-wayna input,
+.form-wayna select,
+.form-wayna textarea {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.75rem;
+    width: 100%;
+    transition: border-color 0.3s;
+    color: var(--wayna-black);
+    background-color: var(--wayna-white);
+}
+
+.form-wayna input:focus,
+.form-wayna select:focus,
+.form-wayna textarea:focus {
+    border-color: var(--wayna-orange);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 107, 53, 0.1);
+}
+
+.form-wayna input::placeholder,
+.form-wayna textarea::placeholder {
+    color: #999;
+}
+
+/* ============================================
+   ALERTAS
+   ============================================ */
+.alert-success {
+    background-color: #d4edda;
+    border-left: 4px solid #28a745;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-left: 4px solid #dc3545;
+    color: #721c24;
+}
+
+.alert-warning {
+    background-color: #fff3cd;
+    border-left: 4px solid #ffc107;
+    color: #856404;
+}
+
+.alert-info {
+    background-color: var(--wayna-orange-soft);
+    border-left: 4px solid var(--wayna-orange);
+    color: var(--wayna-black);
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+    background-color: var(--wayna-black);
+    color: var(--wayna-white);
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer h5 {
+    color: var(--wayna-orange);
+    margin-bottom: 1rem;
+}
+
+.footer a {
+    color: var(--wayna-white);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer a:hover {
+    color: var(--wayna-orange);
+}
+
+.footer p {
+    color: var(--wayna-gray);
+}
+
+.footer hr {
+    background-color: var(--wayna-gray);
+}
+
+/* ============================================
+   BADGES
+   ============================================ */
+.badge-wayna {
+    background-color: var(--wayna-orange) !important;
+    color: var(--wayna-white) !important;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+}
+
+.badge-wayna-status {
+    padding: 0.5em 0.8em;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge-wayna-status.active {
+    background-color: #28a745;
+    color: var(--wayna-white);
+}
+
+.badge-wayna-status.inactive {
+    background-color: #dc3545;
+    color: var(--wayna-white);
+}
+
+.badge-wayna-status.pending {
+    background-color: #ffc107;
+    color: var(--wayna-black);
+}
+
+/* ============================================
+   DROPDOWNS
+   ============================================ */
+.dropdown-menu {
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border: none;
+    margin-top: 0.5rem;
+}
+
+.dropdown-item {
+    color: var(--wayna-black);
+    padding: 0.5rem 1rem;
+    transition: all 0.3s;
+}
+
+.dropdown-item:hover {
+    background-color: var(--wayna-orange-soft);
+    color: var(--wayna-orange);
+}
+
+.dropdown-item i {
+    margin-right: 0.5rem;
+    width: 1.2rem;
+}
+
+/* ============================================
+   PAGINACIÓN
+   ============================================ */
+.page-link {
+    color: var(--wayna-orange);
+    border: none;
+    margin: 0 0.2rem;
+    border-radius: 8px;
+    transition: all 0.3s;
+}
+
+.page-link:hover {
+    background-color: var(--wayna-orange);
+    color: var(--wayna-white);
+}
+
+.page-item.active .page-link {
+    background-color: var(--wayna-orange);
+    border-color: var(--wayna-orange);
+    color: var(--wayna-white);
+}
+
+/* ============================================
+   MODALES
+   ============================================ */
+.modal-content {
+    border-radius: 15px;
+    border: none;
+}
+
+.modal-header {
+    background-color: var(--wayna-orange);
+    color: var(--wayna-white);
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-header .btn-close {
+    background-color: var(--wayna-white);
+    border-radius: 50%;
+    opacity: 1;
+}
+
+.modal-title {
+    color: var(--wayna-white);
+}
+
+.modal-body {
+    color: var(--wayna-black);
+}
+
+/* ============================================
+   UTILIDADES
+   ============================================ */
+.bg-wayna {
+    background-color: var(--wayna-orange) !important;
+}
+
+.text-wayna {
+    color: var(--wayna-orange) !important;
+}
+
+.border-wayna {
+    border-color: var(--wayna-orange) !important;
+}
+
+.btn-close-white {
+    filter: brightness(0) invert(1);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2rem;
+    }
+    
+    .hero {
+        padding: 60px 0;
+    }
+    
+    .navbar .btn-wayna {
+        margin-top: 0.5rem;
+        margin-left: 0 !important;
+    }
+}
+
+/* ============================================
+   SCROLLBAR PERSONALIZADA
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--wayna-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--wayna-orange);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--wayna-orange-dark);
+}
