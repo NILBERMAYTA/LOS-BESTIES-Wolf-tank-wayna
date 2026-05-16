@@ -26,7 +26,7 @@ class TransactionController extends Controller
         $request->validate([
             'cantidad' => 'required|integer|min:1',
             'payment_method_id' => ['required', function ($attribute, $value, $fail) {
-                if (in_array($value, ['wayna_qr', 'yape', 'plin', 'transferencia_bancaria'], true)) {
+                if (in_array($value, ['wayna_qr', 'transferencia_bancaria', 'efectivo'], true)) {
                     return;
                 }
                 if (!PaymentMethod::where('id_metodo', $value)->where('activo', 1)->exists()) {
@@ -44,12 +44,11 @@ class TransactionController extends Controller
         $methodName = 'Pago';
         $methodId = null;
 
-        if (in_array($request->payment_method_id, ['wayna_qr', 'yape', 'plin', 'transferencia_bancaria'], true)) {
+        if (in_array($request->payment_method_id, ['wayna_qr', 'transferencia_bancaria', 'efectivo'], true)) {
             $methodName = match ($request->payment_method_id) {
                 'wayna_qr' => 'Wayna QR',
-                'yape' => 'Yape',
-                'plin' => 'Plin',
                 'transferencia_bancaria' => 'Transferencia Bancaria',
+                'efectivo' => 'Efectivo',
                 default => 'Pago'
             };
         } else {
@@ -116,7 +115,7 @@ class TransactionController extends Controller
         $request->validate([
             'monto' => 'required|numeric|min:1',
             'payment_method_id' => ['required', function ($attribute, $value, $fail) {
-                if (in_array($value, ['wayna_qr', 'yape', 'plin', 'transferencia_bancaria'], true)) {
+                if (in_array($value, ['wayna_qr', 'transferencia_bancaria', 'efectivo'], true)) {
                     return;
                 }
                 if (!PaymentMethod::where('id_metodo', $value)->where('activo', 1)->exists()) {

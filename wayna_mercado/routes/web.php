@@ -52,6 +52,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/dashboard', [DashboardController::class, 'admin'])->name('admin.dashboard');
     Route::get('/admin/pedidos', [DashboardController::class, 'adminPedidos'])->name('admin.pedidos');
     Route::get('/admin/donaciones', [DashboardController::class, 'adminDonaciones'])->name('admin.donaciones');
+    Route::get('/admin/pedidos/{id}', [DashboardController::class, 'showPedido'])->name('admin.pedidos.show');
+    Route::get('/admin/donaciones/{id}', [DashboardController::class, 'showDonacion'])->name('admin.donaciones.show');
     Route::get('/emprendedor/dashboard', [DashboardController::class, 'emprendedor'])->name('emprendedor.dashboard');
     Route::get('/cliente/dashboard', [DashboardController::class, 'cliente'])->name('cliente.dashboard');
 

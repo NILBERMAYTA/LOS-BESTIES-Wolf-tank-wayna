@@ -31,7 +31,7 @@
                         <tbody>
                             @foreach($donaciones as $donacion)
                                 <tr>
-                                    <td>{{ $donacion->id_donacion }}</td>
+                                    <td><a href="{{ route('admin.donaciones.show', $donacion->id_donacion) }}">{{ $donacion->id_donacion }}</a></td>
                                     <td>{{ $donacion->cliente->nombre ?? 'Cliente' }} {{ $donacion->cliente->apellido ?? '' }}</td>
                                     <td>{{ $donacion->emprendedor->nombre_emprendimiento ?? 'Emprendedor' }}</td>
                                     <td>Bs. {{ number_format($donacion->monto, 2) }}</td>

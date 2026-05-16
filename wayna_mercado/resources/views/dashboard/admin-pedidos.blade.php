@@ -31,7 +31,7 @@
                         <tbody>
                             @foreach($pedidos as $pedido)
                                 <tr>
-                                    <td>{{ $pedido->id_pedido }}</td>
+                                    <td><a href="{{ route('admin.pedidos.show', $pedido->id_pedido) }}">{{ $pedido->id_pedido }}</a></td>
                                     <td>{{ $pedido->cliente->nombre ?? 'Cliente' }} {{ $pedido->cliente->apellido ?? '' }}</td>
                                     <td>{{ \Carbon\Carbon::parse($pedido->fecha_pedido)->format('d/m/Y H:i') }}</td>
                                     <td>Bs. {{ number_format($pedido->total, 2) }}</td>

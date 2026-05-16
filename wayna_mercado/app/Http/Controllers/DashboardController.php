@@ -109,4 +109,26 @@ class DashboardController extends Controller
 
         return view('dashboard.admin-donaciones', compact('donaciones'));
     }
+
+    public function showPedido($id)
+    {
+        $user = Auth::user();
+        if (!$user || $user->id_rol != 1) {
+            abort(403, 'Acceso restringido.');
+        }
+
+        $pedido = Pedido::with(['cliente', 'detalles.producto'])->findOrFail($id);
+        return view('dashboard.admin-pedido-detail', compact('pedido'));
+    }
+
+    public function showDonacion($id)
+    {
+        $user = Auth::user();
+        if (!$user || $user->id_rol != 1) {
+            abort(403, 'Acceso restringido.');
+        }
+
+        $donacion = Donacion::with(['cliente', 'emprendedor'])->findOrFail($id);
+        return view('dashboard.admin-donacion-detail', compact('donacion'));
+    }
 }
