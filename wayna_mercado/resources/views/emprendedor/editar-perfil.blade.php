@@ -12,19 +12,16 @@
         <header>
             <div class="header-content">
                 <div class="header-left">
-                    <div class="header-logo">
-                        <span>🚀</span>
-                    </div>
                     <div class="header-title">
                         <h1>Editar Perfil</h1>
                         <p>{{ $emprendedor->nombre_emprendimiento }}</p>
                     </div>
                 </div>
                 <div class="header-buttons">
-                    <a href="{{ route('perfil.index') }}" class="btn btn-edit">👈 Volver</a>
+                    <a href="{{ route('perfil.index') }}" class="btn btn-edit">Volver</a>
                     <form action="{{ route('perfil.logout') }}" method="POST" style="display: inline;">
                         @csrf
-                        <button type="submit" class="btn btn-logout">🚪 Cerrar Sesión</button>
+                        <button type="submit" class="btn btn-logout">Cerrar Sesión</button>
                     </form>
                 </div>
             </div>
@@ -52,7 +49,7 @@
             <!-- FORMULARIO EDITAR PERFIL -->
             <div class="formulario-container">
                 <h2 style="margin-bottom: 30px; color: #333; font-size: 24px;">
-                    ✏️ Actualizar Información del Emprendimiento
+                    Actualizar Información del Emprendimiento
                 </h2>
 
                 <form action="{{ route('perfil.update') }}" method="POST" enctype="multipart/form-data">
@@ -152,10 +149,10 @@
                     <!-- BOTONES -->
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 30px;">
                         <a href="{{ route('perfil.index') }}" class="btn btn-cancelar" style="text-align: center;">
-                            ← Cancelar
+                            Cancelar
                         </a>
                         <button type="submit" class="btn btn-submit">
-                            ✓ Guardar Cambios
+                            Guardar Cambios
                         </button>
                     </div>
                 </form>
@@ -178,9 +175,9 @@
                 </div>
                 <div class="footer-section">
                     <h4>Contacto</h4>
-                    <p>📧 info@wayna.com</p>
-                    <p>📱 +591 70000000</p>
-                    <p>📍 La Paz, Bolivia</p>
+                    <p>info@wayna.com</p>
+                    <p>+591 70000000</p>
+                    <p>La Paz, Bolivia</p>
                 </div>
                 <div class="footer-section">
                     <h4>Síguenos</h4>

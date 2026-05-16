@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="perfil-info-header">
-                        <h2>{{ $datos['nombre_emprendimiento'] ?? $usuario['nombre'] }}</h2>
+                        <h2>{{ $usuario['nombre_emprendimiento'] ?? $usuario['nombre'] }}</h2>
                         <p class="frase-impacto">{{ $datos['frase_impacto'] ?? '"Transformando sueños en realidad"' }}</p>
                         
                         <span class="estado-validacion estado-{{ $datos['estado'] ?? 'pendiente' }}">

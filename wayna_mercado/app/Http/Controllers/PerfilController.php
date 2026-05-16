@@ -22,8 +22,14 @@ class PerfilController extends Controller
             return view('perfil', compact('usuario'));
         }
 
-        $datos = $emprendedor->obtenerDatosCompletos();
-        return view('perfil', ['emprendedor' => $emprendedor, 'datos' => $datos]);
+        
+
+        $usuario = $emprendedor->obtenerDatosCompletos();
+        return view('perfil', [
+            'emprendedor' => $emprendedor,
+            'usuario' => $usuario
+        ]);
+
     }
 
     /**
