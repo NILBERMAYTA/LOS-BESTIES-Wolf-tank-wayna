@@ -14,7 +14,7 @@
         @if($emprendedor)
             @php
                 $productosRecientes = $emprendedor->productos()->take(5)->get();
-                $productoCount = $emprendedor->productos()->count();
+                $productoCount = $totalProductos;
             @endphp
             <div class="row mb-4">
                 <div class="col-md-8">
@@ -36,35 +36,46 @@
 
             {{-- Tarjetas de información --}}
             <div class="row mb-5">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card shadow">
                         <div class="card-body text-center">
                             <i class="fas fa-cube fa-3x mb-3" style="color: var(--wayna-orange);"></i>
                             <p class="text-muted">Productos</p>
                             <h3 style="color: var(--wayna-orange);">
-                                {{ $emprendedor->productos()->count() }}
+                                {{ $totalProductos }}
                             </h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card shadow">
                         <div class="card-body text-center">
-                            <i class="fas fa-star fa-3x mb-3" style="color: var(--wayna-orange);"></i>
-                            <p class="text-muted">Calificación Promedio</p>
+                            <i class="fas fa-shopping-cart fa-3x mb-3" style="color: var(--wayna-orange);"></i>
+                            <p class="text-muted">Ventas</p>
                             <h3 style="color: var(--wayna-orange);">
-                                {{ number_format(rand(40, 50) / 10, 1) }}/5
+                                Bs. {{ number_format($totalVentas, 2) }}
                             </h3>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="card shadow">
                         <div class="card-body text-center">
-                            <i class="fas fa-eye fa-3x mb-3" style="color: var(--wayna-orange);"></i>
-                            <p class="text-muted">Visitas</p>
+                            <i class="fas fa-boxes fa-3x mb-3" style="color: var(--wayna-orange);"></i>
+                            <p class="text-muted">Unidades vendidas</p>
                             <h3 style="color: var(--wayna-orange);">
-                                {{ rand(100, 1000) }}
+                                {{ $totalUnidadesVendidas }}
+                            </h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="card shadow">
+                        <div class="card-body text-center">
+                            <i class="fas fa-hand-holding-heart fa-3x mb-3" style="color: var(--wayna-orange);"></i>
+                            <p class="text-muted">Donaciones</p>
+                            <h3 style="color: var(--wayna-orange);">
+                                Bs. {{ number_format($totalDonaciones, 2) }}
                             </h3>
                         </div>
                     </div>
@@ -224,4 +235,83 @@
         </div>
     @endif
 </div>
+
+{{-- Modales usados por los botones del panel --}}
+{{-- Modal Fotos --}}
+<div class="modal fade" id="modalFotos" tabindex="-1" aria-labelledby="modalFotosLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalFotosLabel"><i class="fas fa-images"></i> Fotos del emprendimiento</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3">
+                    <div class="col-md-6">
+                        <h6>Foto de perfil</h6>
+                        @if($emprendedor->foto_perfil)
+                            <img src="{{ asset('storage/' . $emprendedor->foto_perfil) }}" class="img-fluid rounded" alt="Foto de perfil">
+                        @else
+                            <div class="p-5 text-center" style="background:#f5f5f5;">
+                                <i class="fas fa-user fa-3x text-muted"></i>
+                                <p class="mt-2">Sin foto de perfil</p>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Foto de portada</h6>
+                        @if($emprendedor->foto_portada)
+                            <img src="{{ asset('storage/' . $emprendedor->foto_portada) }}" class="img-fluid rounded" alt="Foto de portada">
+                        @else
+                            <div class="p-5 text-center" style="background:#f5f5f5;">
+                                <i class="fas fa-image fa-3x text-muted"></i>
+                                <p class="mt-2">Sin foto de portada</p>
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="{{ route('emprendedor.editPerfil') }}" class="btn btn-outline-warning">Editar fotos</a>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Modal Estadísticas --}}
+<div class="modal fade" id="modalEstadisticas" tabindex="-1" aria-labelledby="modalEstadisticasLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalEstadisticasLabel"><i class="fas fa-chart-bar"></i> Estadísticas</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row g-3 text-center">
+                    <div class="col-6">
+                        <h6>Productos</h6>
+                        <p class="h4">{{ $totalProductos ?? 0 }}</p>
+                    </div>
+                    <div class="col-6">
+                        <h6>Ventas (Bs.)</h6>
+                        <p class="h4">{{ number_format($totalVentas ?? 0, 2) }}</p>
+                    </div>
+                    <div class="col-6">
+                        <h6>Unidades vendidas</h6>
+                        <p class="h5">{{ $totalUnidadesVendidas ?? 0 }}</p>
+                    </div>
+                    <div class="col-6">
+                        <h6>Donaciones (Bs.)</h6>
+                        <p class="h5">{{ number_format($totalDonaciones ?? 0, 2) }}</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection

@@ -47,4 +47,9 @@ class Emprendedor extends Model
         return $this->hasMany(Producto::class, 'id_emprendedor')
                     ->where('estado', '!=', 'oculto');
     }
+
+    public function donaciones()
+    {
+        return $this->hasMany(Donacion::class, 'id_emprendedor', 'id_emprendedor');
+    }
 }

@@ -32,4 +32,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(Emprendedor::class, 'id_usuario', 'id_usuario');
     }
+
+    public function pedidos()
+    {
+        return $this->hasMany(Pedido::class, 'id_cliente', 'id_usuario');
+    }
+
+    public function donaciones()
+    {
+        return $this->hasMany(Donacion::class, 'id_cliente', 'id_usuario');
+    }
 }

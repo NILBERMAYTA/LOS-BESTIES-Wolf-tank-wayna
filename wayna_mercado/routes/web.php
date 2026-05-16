@@ -35,6 +35,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->n
 // Registro de emprendedor
 Route::get('/registro-emprendedor', [RegistroController::class, 'formulario'])->name('register.emprendedor');
 Route::post('/registro-emprendedor', [RegistroController::class, 'guardar'])->name('register.emprendedor.post');
+Route::redirect('/register', '/registro-emprendedor')->name('register');
 
 // Compra y donación
 Route::middleware('auth')->group(function () {
@@ -49,6 +50,8 @@ Route::middleware('auth')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/admin/dashboard', [DashboardController::class, 'admin'])->name('admin.dashboard');
+    Route::get('/admin/pedidos', [DashboardController::class, 'adminPedidos'])->name('admin.pedidos');
+    Route::get('/admin/donaciones', [DashboardController::class, 'adminDonaciones'])->name('admin.donaciones');
     Route::get('/emprendedor/dashboard', [DashboardController::class, 'emprendedor'])->name('emprendedor.dashboard');
     Route::get('/cliente/dashboard', [DashboardController::class, 'cliente'])->name('cliente.dashboard');
 
@@ -61,5 +64,11 @@ Route::middleware('auth')->group(function () {
         Route::delete('/productos/{id}', [ProductoController::class, 'destroy'])->name('producto.destroy');
         Route::get('/perfil/editar', [EmprendedorController::class, 'editPerfil'])->name('emprendedor.editPerfil');
         Route::put('/perfil', [EmprendedorController::class, 'updatePerfil'])->name('emprendedor.updatePerfil');
+    });
+
+    // Admin: payment methods QR upload
+    Route::prefix('admin')->middleware('auth')->group(function(){
+        Route::get('/metodos/{id}/qr', [\App\Http\Controllers\Admin\PaymentMethodController::class, 'editQr'])->name('admin.metodos.edit_qr');
+        Route::put('/metodos/{id}/qr', [\App\Http\Controllers\Admin\PaymentMethodController::class, 'updateQr'])->name('admin.metodos.update_qr');
     });
 });
