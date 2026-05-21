@@ -10,7 +10,9 @@ class Categoria extends Model
     use HasFactory;
 
     protected $table = 'categorias';
+
     protected $primaryKey = 'id_categoria';
+
     public $timestamps = false;
 
     protected $fillable = [
@@ -18,6 +20,11 @@ class Categoria extends Model
         'slug',
         'descripcion',
         'imagen_categoria',
-        'activo',
+        'activo'
     ];
+
+    public function productos()
+    {
+        return $this->hasMany(Producto::class, 'id_categoria');
+    }
 }

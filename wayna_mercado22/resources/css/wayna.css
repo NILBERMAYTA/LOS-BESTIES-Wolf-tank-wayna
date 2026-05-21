@@ -1,0 +1,297 @@
+/* public/css/wayna.css */
+:root {
+    --wayna-orange: #FF6B35;
+    --wayna-orange-dark: #E55A2B;
+    --wayna-orange-light: #FF8C5A;
+    --wayna-orange-soft: #FFF3ED;
+    --wayna-black: #000000;
+    --wayna-black-light: #1A1A1A;
+    --wayna-gray: #4A4A4A;
+    --wayna-light: #F5F5F5;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: white;
+    color: #000000; /* Texto negro */
+}
+
+/* Navbar */
+.navbar {
+    background-color: #000000 !important; /* Fondo negro */
+    padding: 1rem 0;
+    border-bottom: 3px solid var(--wayna-orange);
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: var(--wayna-orange) !important;
+}
+
+.navbar-brand span {
+    color: white;
+}
+
+.nav-link {
+    color: white !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--wayna-orange) !important;
+}
+
+.btn-wayna {
+    background-color: var(--wayna-orange);
+    color: #000000; /* Texto negro */
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-wayna:hover {
+    background-color: var(--wayna-orange-dark);
+    color: #000000; /* Texto negro */
+    transform: translateY(-2px);
+}
+
+.btn-outline-wayna,
+.btn-outline-warning {
+    background-color: transparent;
+    color: var(--wayna-orange);
+    border: 2px solid var(--wayna-orange);
+    padding: 0.5rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.btn-outline-wayna:hover,
+.btn-outline-warning:hover {
+    background-color: var(--wayna-orange);
+    color: #000000; /* Texto negro */
+}
+
+.btn-wayna, .badge-wayna, .bg-wayna {
+    background-color: var(--wayna-orange) !important;
+    color: #000000 !important; /* Texto negro */
+}
+
+.badge-wayna-status {
+    color: white;
+    padding: 0.5em 0.8em;
+    border-radius: 12px;
+    font-size: 0.85rem;
+}
+
+.badge-wayna-status.active {
+    background-color: #28a745;
+}
+
+.badge-wayna-status.inactive {
+    background-color: #dc3545;
+}
+
+.table-wayna thead th {
+    border-bottom: 2px solid var(--wayna-orange);
+    color: #000000; /* Texto negro */
+}
+
+.table-wayna tbody tr td {
+    vertical-align: middle;
+    color: #000000; /* Texto negro */
+}
+
+.card {
+    border-radius: 18px;
+    border: none;
+}
+
+body {
+    background-color: #faf7f4;
+    color: #000000; /* Texto negro */
+}
+
+.alert-info {
+    background-color: #fff4ed;
+    border-color: var(--wayna-orange-light);
+    color: #000000; /* Texto negro */
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+    color: #000000; /* Texto negro */
+    padding: 80px 0;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #000000; /* Texto negro */
+}
+
+.hero h1 span {
+    color: var(--wayna-orange);
+}
+
+.hero p {
+    color: #000000; /* Texto negro */
+}
+
+/* Cards */
+.card-wayna {
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    overflow: hidden;
+    background-color: white;
+}
+
+.card-wayna:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.card-wayna .card-icon {
+    font-size: 3rem;
+    color: var(--wayna-orange);
+    margin-bottom: 1rem;
+}
+
+.card-wayna .card-title,
+.card-wayna .card-text {
+    color: #000000; /* Texto negro */
+}
+
+/* Footer */
+.footer {
+    background-color: #000000; /* Fondo negro */
+    color: white;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+.footer a {
+    color: var(--wayna-orange);
+    text-decoration: none;
+}
+
+.footer p {
+    color: white;
+}
+
+/* Forms */
+.form-wayna {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.form-wayna label {
+    color: #000000; /* Texto negro */
+    font-weight: 500;
+}
+
+.form-wayna input,
+.form-wayna select,
+.form-wayna textarea {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 0.75rem;
+    width: 100%;
+    transition: border-color 0.3s;
+    color: #000000; /* Texto negro */
+}
+
+.form-wayna input:focus,
+.form-wayna select:focus,
+.form-wayna textarea:focus {
+    border-color: var(--wayna-orange);
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,107,53,0.1);
+}
+
+.form-wayna input::placeholder,
+.form-wayna textarea::placeholder {
+    color: #999;
+}
+
+/* Textos generales en negro */
+h1, h2, h3, h4, h5, h6,
+p, span, div, li, a:not(.nav-link),
+.text-muted {
+    color: #000000; /* Texto negro */
+}
+
+/* Links normales */
+a:not(.nav-link):not(.btn):not(.footer a) {
+    color: #000000;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+a:not(.nav-link):not(.btn):not(.footer a):hover {
+    color: var(--wayna-orange);
+}
+
+/* Tablas */
+table td, 
+table th {
+    color: #000000; /* Texto negro */
+}
+
+/* Modals */
+.modal-content {
+    color: #000000; /* Texto negro */
+}
+
+.modal-title {
+    color: #000000; /* Texto negro */
+}
+
+/* Dropdowns */
+.dropdown-item {
+    color: #000000; /* Texto negro */
+}
+
+.dropdown-item:hover {
+    background-color: var(--wayna-orange-soft);
+    color: #000000;
+}
+
+/* Paginación */
+.page-link {
+    color: #000000; /* Texto negro */
+}
+
+.page-item.active .page-link {
+    background-color: var(--wayna-orange);
+    border-color: var(--wayna-orange);
+    color: #000000; /* Texto negro */
+}
+
+/* Badges */
+.badge {
+    color: #000000; /* Texto negro */
+}
+
+/* Alertas */
+.alert {
+    color: #000000; /* Texto negro */
+}
+
+/* Botón de cerrar modal */
+.btn-close {
+    background-color: transparent;
+}

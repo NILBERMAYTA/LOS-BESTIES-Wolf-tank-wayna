@@ -10,6 +10,7 @@ class Emprendedor extends Model
     use HasFactory;
 
     protected $table = 'emprendedores';
+
     protected $primaryKey = 'id_emprendedor';
 
     protected $fillable = [
@@ -27,7 +28,11 @@ class Emprendedor extends Model
         'latitud',
         'longitud',
         'estado_validacion',
-        'verificado',
+        'fecha_solicitud',
+        'fecha_validacion',
+        'id_admin_validador',
+        'comentario_rechazo',
+        'verificado'
     ];
 
     protected $casts = [
@@ -36,11 +41,16 @@ class Emprendedor extends Model
     ];
 
     /**
-     * Relación con el usuario
+     * Relación con usuario
      */
     public function usuario()
     {
-        return $this->belongsTo(usuario::class, 'id_usuario', 'id_usuario');
+        return $this->belongsTo(User::class, 'id_usuario', 'id_usuario');
+    }
+
+    public function user()
+    {   
+        return $this->belongsTo(User::class, 'id_usuario', 'id_usuario');
     }
 
     /**
@@ -52,7 +62,24 @@ class Emprendedor extends Model
     }
 
     /**
-     * Obtener datos del emprendedor con usuario
+     * Productos activos
+     */
+    public function productosActivos()
+    {
+        return $this->hasMany(Producto::class, 'id_emprendedor')
+                    ->where('estado', '!=', 'oculto');
+    }
+
+    /**
+     * Relación con donaciones
+     */
+    public function donaciones()
+    {
+        return $this->hasMany(Donacion::class, 'id_emprendedor', 'id_emprendedor');
+    }
+
+    /**
+     * Obtener datos completos
      */
     public function obtenerDatosCompletos()
     {
